@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Application Form</title>
+    <!-- jQuery CDN (Required for the assignment) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: new font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(circle at top left, #fdfcfb 0%, #e2d1f9 40%, #f9f9ff 100%);
+        min-height: 100vh;
+        color: #111827;
+      }
+      .panel-elevated {
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.15);
+        border: 1px solid #e5e7eb;
+      }
+      .header-accent {
+        text-shadow: 0 3px 12px rgba(79, 70, 229, 0.4);
+      }
+      /* Custom scrollbar (new colors) */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f9fafb;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c4b5fd;
+        border-radius: 8px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a78bfa;
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center p-4">
+    <div class="container max-w-2xl mx-auto">
+      <!-- HEADER -->
+      <div class="text-center mb-8">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold mb-3 text-indigo-700 header-accent tracking-tight"
+        >
+          Student Registration
+        </h1>
+        <p class="text-sm md:text-base text-slate-600">
+          Secure online application portal for prospective students
+        </p>
+      </div>
+
+      <!-- FORM SECTION -->
+      <div
+        id="application-form-container"
+        class="panel-elevated p-8 md:p-10 transition-all duration-500"
+      >
+        <h2
+          class="text-2xl font-semibold text-slate-800 mb-6 border-b border-indigo-100 pb-3 flex items-center justify-between"
+        >
+          <span>Application Details</span>
+          <span
+            class="inline-flex items-center rounded-full bg-indigo-50 text-xs font-medium text-indigo-700 px-3 py-1"
+            >Step 1 of 1</span
+          >
+        </h2>
+
+        <form id="registrationForm" class="space-y-6">
+          <!-- Name Field -->
+          <div>
+            <label
+              for="fullname"
+              class="block text-sm font-medium text-slate-700 mb-1"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              required
+              class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-slate-50 hover:bg-white"
+              placeholder="e.g. John Doe"
+            />
+          </div>
+
+          <!-- Email & Phone Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-slate-700 mb-1"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-slate-50 hover:bg-white"
+                placeholder="john@example.com"
+              />
+            </div>
+            <div>
+              <label
+                for="phone"
+                class="block text-sm font-medium text-slate-700 mb-1"
+                >Phone Number</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-slate-50 hover:bg-white"
+                placeholder="(123) 456-7890"
+              />
+            </div>
+          </div>
+
+          <!-- Gender -->
+          <div>
+            <span class="block text-sm font-medium text-slate-700 mb-2"
+              >Gender</span
+            >
+            <div class="flex flex-wrap gap-4">
+              <label
+                class="flex items-center space-x-2 cursor-pointer text-sm text-slate-700"
+              >
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  required
+                  class="text-indigo-600 focus:ring-indigo-500"
+                />
+                <span>Male</span>
+              </label>
+              <label
+                class="flex items-center space-x-2 cursor-pointer text-sm text-slate-700"
+              >
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  class="text-indigo-600 focus:ring-indigo-500"
+                />
+                <span>Female</span>
+              </label>
+              <label
+                class="flex items-center space-x-2 cursor-pointer text-sm text-slate-700"
+              >
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Other"
+                  class="text-indigo-600 focus:ring-indigo-500"
+                />
+                <span>Other</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Course Selection -->
+          <div>
+            <label
+              for="course"
+              class="block text-sm font-medium text-slate-700 mb-1"
+              >Course Applying For</label
+            >
+            <select
+              id="course"
+              name="course"
+              required
+              class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white transition"
+            >
+              <option value="" disabled selected>Select a course</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Information Technology">
+                Information Technology
+              </option>
+              <option value="Business Administration">
+                Business Administration
+              </option>
+              <option value="Data Science">Data Science</option>
+            </select>
+          </div>
+
+          <!-- Address -->
+          <div>
+            <label
+              for="address"
+              class="block text-sm font-medium text-slate-700 mb-1"
+              >Permanent Address</label
+            >
+            <textarea
+              id="address"
+              name="address"
+              rows="3"
+              required
+              class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition bg-slate-50 hover:bg-white"
+              placeholder="Enter your full address"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-4">
+            <button
+              type="submit"
+              class="w-full bg-gradient-to-r from-indigo-600 via-violet-600 to-fuchsia-500 text-white font-semibold py-3 px-4 rounded-xl shadow-lg hover:shadow-xl hover:from-indigo-700 hover:via-violet-700 hover:to-fuchsia-600 transform hover:-translate-y-0.5 active:translate-y-0 transition duration-200 text-sm tracking-wide"
+            >
+              Submit Application
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- SUCCESS DISPLAY SECTION (Hidden by default) -->
+      <div
+        id="success-display"
+        class="panel-elevated p-8 md:p-10 hidden text-center transform scale-95 opacity-0 transition-all duration-500 mt-6"
+      >
+        <div
+          class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-100"
+        >
+          <svg
+            class="w-8 h-8 text-emerald-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+        </div>
+        <h2 class="text-2xl font-semibold text-slate-800 mb-2">
+          Application Submitted!
+        </h2>
+        <p class="text-slate-500 mb-8 text-sm">
+          Your registration has been received successfully. A confirmation
+          email will be sent shortly.
+        </p>
+
+        <div
+          class="bg-slate-50 rounded-2xl p-6 text-left shadow-inner border border-slate-200"
+        >
+          <h3
+            class="text-lg font-semibold text-slate-800 border-b border-slate-200 pb-2 mb-4"
+          >
+            Submitted Information
+          </h3>
+
+          <div class="grid grid-cols-1 gap-y-3 text-sm">
+            <div class="flex justify-between">
+              <span class="text-slate-500">Full Name:</span>
+              <span id="display-name" class="font-medium text-slate-900"></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500">Email:</span>
+              <span id="display-email" class="font-medium text-slate-900"></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500">Phone:</span>
+              <span id="display-phone" class="font-medium text-slate-900"></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500">Gender:</span>
+              <span
+                id="display-gender"
+                class="font-medium text-slate-900"
+              ></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500">Course:</span>
+              <span
+                id="display-course"
+                class="font-medium text-indigo-600"
+              ></span>
+            </div>
+            <div class="flex flex-col mt-2">
+              <span class="text-slate-500 mb-1">Address:</span>
+              <span
+                id="display-address"
+                class="font-medium text-slate-900 bg-white p-2 rounded-xl border border-slate-200"
+              ></span>
+            </div>
+          </div>
+        </div>
+
+        <button
+          id="reset-btn"
+          class="mt-6 text-indigo-600 hover:text-indigo-800 font-medium hover:underline text-sm"
+        >
+          Submit Another Application
+        </button>
+      </div>
+    </div>
+
+    <!-- jQuery Logic for functionality -->
+    <script>
+      $(document).ready(function () {
+        // Intercept Form Submission
+        $("#registrationForm").on("submit", function (e) {
+          e.preventDefault(); // Prevent actual page reload
+
+          // 1. Capture Data
+          const formData = {
+            name: $("#fullname").val(),
+            email: $("#email").val(),
+            phone: $("#phone").val(),
+            gender: $('input[name="gender"]:checked').val(),
+            course: $("#course").val(),
+            address: $("#address").val(),
+          };
+
+          // 2. Populate Display Section
+          $("#display-name").text(formData.name);
+          $("#display-email").text(formData.email);
+          $("#display-phone").text(formData.phone);
+          $("#display-gender").text(formData.gender);
+          $("#display-course").text(formData.course);
+          $("#display-address").text(formData.address);
+
+          // 3. UI Transition: Hide Form, Show Success
+          $("#application-form-container").fadeOut(300, function () {
+            $("#success-display")
+              .removeClass("hidden")
+              .animate({ opacity: 1 }, 200)
+              .removeClass("scale-95")
+              .addClass("scale-100");
+          });
+        });
+
+        // Reset Logic
+        $("#reset-btn").on("click", function () {
+          $("#success-display")
+            .addClass("scale-95")
+            .fadeOut(300, function () {
+              $(this).addClass("hidden");
+              $("#registrationForm")[0].reset();
+              $("#application-form-container").fadeIn(300);
+            });
+        });
+      });
+    </script>
+  </body>
+  </html>
