@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Online Registration Form</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Font (optional but makes it look nice) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="bg-overlay"></div>
+
+    <div class="container">
+        <div class="form-card">
+            <h1 class="title">Online Registration</h1>
+            <p class="subtitle">Fill in your details to complete the registration.</p>
+
+            <form id="registrationForm" action="process.php" method="POST" novalidate>
+                <!-- Row 1 -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span>*</span></label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span>*</span></label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span>*</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91-XXXXXXXXXX" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth <span>*</span></label>
+                        <input type="date" id="dob" name="dob" required />
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Gender <span>*</span></label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="gender" value="Male" required /> Male</label>
+                            <label><input type="radio" name="gender" value="Female" /> Female</label>
+                            <label><input type="radio" name="gender" value="Other" /> Other</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course">Course Applying For <span>*</span></label>
+                        <select id="course" name="course" required>
+                            <option value="">-- Select Course --</option>
+                            <option value="B.Tech">B.Tech</option>
+                            <option value="BCA">BCA</option>
+                            <option value="B.Sc (CS)">B.Sc (CS)</option>
+                            <option value="M.Tech">M.Tech</option>
+                            <option value="MCA">MCA</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group full-width">
+                    <label for="address">Address <span>*</span></label>
+                    <textarea id="address" name="address" rows="3" placeholder="House No, Street, Area" required></textarea>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City <span>*</span></label>
+                        <input type="text" id="city" name="city" placeholder="City" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State <span>*</span></label>
+                        <input type="text" id="state" name="state" placeholder="State" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pincode">Pincode <span>*</span></label>
+                        <input type="text" id="pincode" name="pincode" placeholder="Pincode" required />
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="form-group full-width">
+                    <label>Skills / Interests</label>
+                    <div class="chip-group">
+                        <label><input type="checkbox" name="skills[]" value="Programming" /> Programming</label>
+                        <label><input type="checkbox" name="skills[]" value="Web Development" /> Web Development</label>
+                        <label><input type="checkbox" name="skills[]" value="Data Science" /> Data Science</label>
+                        <label><input type="checkbox" name="skills[]" value="AI/ML" /> AI/ML</label>
+                        <label><input type="checkbox" name="skills[]" value="Design" /> Design</label>
+                    </div>
+                </div>
+
+                <!-- Terms -->
+                <div class="form-group full-width terms">
+                    <label>
+                        <input type="checkbox" id="agree" name="agree" required />
+                        I confirm that the above information is correct.
+                    </label>
+                </div>
+
+                <!-- Error message -->
+                <div id="errorBox" class="error-box" style="display:none;">
+                    Please fill all required fields marked with (*).
+                </div>
+
+                <!-- Button -->
+                <div class="button-row">
+                    <button type="submit" class="btn-primary">Submit Application</button>
+                    <button type="reset" class="btn-ghost" id="resetBtn">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
